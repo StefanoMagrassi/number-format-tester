@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body>
+    <h1>JUST A TEST</h1>
+
+    <div id="output"></div>
+
+    <script>
+      function main() {
+        var x = new Intl.NumberFormat('it', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 0,
+          minimumFractionDigits: 0,
+        }).format(1234.5678);
+      
+        var y = new Intl.NumberFormat('it', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 0,
+        }).format(1234.5678);
+      
+        var z = new Intl.NumberFormat('it', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 2,
+        }).format(1234.5678);
+      
+        return [x, y, z];
+      }
+      
+      function run() {
+        try {
+          const result = main();
+      
+          document.getElementById('output').innerHTML = result.join(' | ');
+        } catch (e) {
+          document.getElementById('output').innerHTML = String(e);
+        }
+      }
+      
+      run();
+    </script>
+  </body>
+</html>
